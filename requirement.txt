@@ -1,0 +1,5 @@
+django
+django-allauth
+django-Heroku
+psycopg2
+gunicorn

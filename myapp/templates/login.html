@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load socialaccount %}
+{% load static %}
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="login-form">
+    <form action="" method="POST" class="jumbotron">
+        {% csrf_token %}
+        <h2>Login</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-sm-6">
+                <div class="social-media">
+                    <h5>Sign up with social media</h5>
+                    <div class="social-icons">
+                        <a href="{% provider_login_url 'linkedin_oauth2' method='oauth2' %}">
+                            <i class="fab fa-linkedin"></i>Login with LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}
